@@ -1,2 +1,2 @@
 # Rocket
-Game realized for math class
+Game realized for math class in IMAC school
