@@ -6,15 +6,18 @@ public class FuseeMoves : MonoBehaviour
 {
     //Ref to rigidBody
 	public Rigidbody rb;
-	public float forwardForce = 2000f;
-	public float sidewaysForce = 500f;
+    public float speed = 95.0f;
+    //private float forwardForce = 100.0f;
+	private float sidewaysForce = 500f;
 
     // Fixed is beacause we are using it to mess with physics
     void FixedUpdate() {
-    	//Add forward force
-        rb.AddForce(0, forwardForce * Time.deltaTime/4, 0);
+        //Add forward force
+        // rb.AddForce(0, forwardForce * Time.deltaTime/6, 0);
+        rb = this.GetComponent<Rigidbody>();
+        rb.velocity = new Vector3(0, speed, 0);
 
-        if(Input.GetKey("q")) {
+        if (Input.GetKey("q")) {
         	rb.AddForce(sidewaysForce * Time.deltaTime/2, 0, 0);
         }
        	if(Input.GetKey("f")) {
