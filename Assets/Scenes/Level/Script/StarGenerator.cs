@@ -10,8 +10,8 @@ public class StarGenerator : MonoBehaviour
     private Vector3 position; 
     public GameObject stars;
 
+
     void Start() {
-        //stars = new GameObject();
         StartCoroutine(starWave());   
     }
 
@@ -26,8 +26,10 @@ public class StarGenerator : MonoBehaviour
     IEnumerator<WaitForSeconds> starWave() {
         while(true) {
             yield return new WaitForSeconds(respawnTime);
-            for(int i=0; i<10; i++) {
-                spawnStars();
+            if(FindObjectOfType<GameManager>().getGameHasBegin()) {
+                for(int i=0; i<10; i++) {
+                    spawnStars();
+                }
             }
         }
     }

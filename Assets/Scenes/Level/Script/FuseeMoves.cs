@@ -6,7 +6,7 @@ public class FuseeMoves : MonoBehaviour
 {
     //Ref to rigidBody
 	public Rigidbody rb;
-    public float speed = 95.0f;
+    public float speed = 50.0f;
     //private float forwardForce = 100.0f;
 	private float sidewaysForce = 500f;
 
@@ -14,7 +14,7 @@ public class FuseeMoves : MonoBehaviour
     void FixedUpdate() {
         //Add forward force
         // rb.AddForce(0, forwardForce * Time.deltaTime/6, 0);
-        rb = this.GetComponent<Rigidbody>();
+        // rb = this.GetComponent<Rigidbody>();
         rb.velocity = new Vector3(0, speed, 0);
 
         if (Input.GetKey("q")) {

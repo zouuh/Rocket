@@ -4,12 +4,21 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    bool gameHasBegin = false;
     bool gameHasEnded = false;
     public GameObject gameOverUI;
+    public GameObject gameStartUI;
+    public FuseeMoves movement;
 
-    public float restartDelay = 5f;
 
     void Update() {
+        if (Input.GetKey("space")) {
+            gameHasBegin = true;
+        }
+        if (gameHasBegin == true) {
+            gameStartUI.SetActive(false);
+            movement.enabled = true;
+        }
         if (gameHasEnded == true) {
             if (Input.GetKey("r")) {
                 Restart();
@@ -25,6 +34,10 @@ public class GameManager : MonoBehaviour
         if (Input.GetKey("r")){
             Restart();
         }
+    }
+
+    public bool getGameHasBegin() {
+        return gameHasBegin;
     }
 
     
