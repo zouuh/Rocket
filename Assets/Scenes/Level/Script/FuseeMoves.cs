@@ -6,7 +6,7 @@ public class FuseeMoves : MonoBehaviour
 {
     //Ref to rigidBody
 	public Rigidbody rb;
-    public float speed = 50.0f;
+    private float speed = 10.0f;
     //private float forwardForce = 100.0f;
 	private float sidewaysForce = 500f;
 

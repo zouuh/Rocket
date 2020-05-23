@@ -40,6 +40,10 @@ public class GameManager : MonoBehaviour
         return gameHasBegin;
     }
 
+    public bool getGameHasEnded() {
+        return gameHasEnded;
+    }
+
     
 
     void Restart() {
