@@ -11,13 +11,18 @@ public class Flame5Moves : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if(Input.GetKey("m")) {
-            apparition = new Vector3(0.1f, 0.12f, 0.12f);
+        if(!FindObjectOfType<GameManager>().getGameHasEnded()) {
+            if(Input.GetKey("m")) {
+                apparition = new Vector3(0.1f, 0.12f, 0.12f);
+            }
+            else {
+                apparition = new Vector3(0f, 0f, 0f);
+            }
         }
         else {
             apparition = new Vector3(0f, 0f, 0f);
         }
         transform.position = player.position + offset;
-        transform.localScale = apparition; 
+        transform.localScale = apparition;
     }
 }

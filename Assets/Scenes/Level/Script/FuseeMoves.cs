@@ -8,20 +8,22 @@ public class FuseeMoves : MonoBehaviour
     private float speed = 10.0f;
 	private float sidewaysForce = 5f;
 
-    void FixedUpdate() {
-        rb.velocity = new Vector3(0, speed, 0);
+    void Update() {
+        if(!FindObjectOfType<GameManager>().getGameHasEnded()) {
+            rb.velocity = new Vector3(0, speed, 0);
 
-        if (Input.GetKey("q")) {
-            rb.velocity = new Vector3(sidewaysForce, speed, 0);
-        }
-       	if(Input.GetKey("f")) {
-            rb.velocity = new Vector3(sidewaysForce/2, speed, 0);
-        }
-        if(Input.GetKey("j")) {
-            rb.velocity = new Vector3(-sidewaysForce/2, speed, 0);
-        }
-        if(Input.GetKey("m")) {
-            rb.velocity = new Vector3(-sidewaysForce, speed, 0);
+            if (Input.GetKey("q")) {
+                rb.velocity += new Vector3(sidewaysForce, 0, 0);
+            }
+            if(Input.GetKey("f")) {
+                rb.velocity += new Vector3(sidewaysForce/2, 0, 0);
+            }
+            if(Input.GetKey("j")) {
+                rb.velocity += new Vector3(-sidewaysForce/2, 0, 0);
+            }
+            if(Input.GetKey("m")) {
+                rb.velocity += new Vector3(-sidewaysForce, 0, 0);
+            }
         }
     }
 }

@@ -11,8 +11,13 @@ public class Flame3Moves : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if(Input.GetKey("j")) {
-            apparition = new Vector3(0.13f, 0.15f, 0.15f);
+        if(!FindObjectOfType<GameManager>().getGameHasEnded()) {
+            if(Input.GetKey("j")) {
+                apparition = new Vector3(0.13f, 0.15f, 0.15f);
+            }
+            else {
+                apparition = new Vector3(0f, 0f, 0f);
+            }
         }
         else {
             apparition = new Vector3(0f, 0f, 0f);

@@ -11,6 +11,11 @@ public class Flame1Move : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-    	transform.position = player.position + offset;        
+        if(!FindObjectOfType<GameManager>().getGameHasEnded()) {
+        	transform.position = player.position + offset;        
+        }
+        else {
+            transform.position = apparition;
+        }
     }
 }

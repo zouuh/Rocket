@@ -32,9 +32,11 @@ public class DeployStar : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(respawnTime);
-            for (int i = 0; i < 10; i++)
-            {
-                spawnStars();
+            if(FindObjectOfType<GameManager>().getGameHasBegin()) {
+                for (int i = 0; i < 10; i++)
+                {
+                    spawnStars();
+                }
             }
         }
     }

@@ -22,7 +22,7 @@ public class DeployAsteroid : MonoBehaviour
     private void spawnEnemy()
     {
         GameObject a = Instantiate(asteroidPrefab) as GameObject;
-        a.transform.position = new Vector3(Random.Range(screenBounds.x-5, screenBounds.x+5), screenBounds.y+15, 0);
+        a.transform.position = new Vector3(Random.Range(screenBounds.x-5, screenBounds.x+5), screenBounds.y+10, 0);
     }
 
     IEnumerator asteroidWave()
@@ -30,7 +30,9 @@ public class DeployAsteroid : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(respawnTime);
-            spawnEnemy();
+            if(FindObjectOfType<GameManager>().getGameHasBegin()) {
+                spawnEnemy();
+            }
         }
     }
 }

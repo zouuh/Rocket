@@ -6,19 +6,23 @@ public class Flame2Moves : MonoBehaviour
 {
     public Transform player;
 	private Vector3 offset = new Vector3(-0.37f, -0.05f, 0.0f);
-    private Vector3 scale;
-    private Vector3 rotate;
+    private Vector3 apparition = new Vector3(0, 0, 0);
 
 
     // Update is called once per frame
     void Update() {
-        if(Input.GetKey("f")) {
-            scale = new Vector3(0.13f, 0.15f, 0.15f);
+        if(!FindObjectOfType<GameManager>().getGameHasEnded()) {
+            if(Input.GetKey("f")) {
+                apparition = new Vector3(0.13f, 0.15f, 0.15f);
+            }
+            else {
+                apparition = new Vector3(0f, 0f, 0f);
+            }
         }
         else {
-            scale = new Vector3(0f, 0f, 0f);
+            apparition = new Vector3(0f, 0f, 0f);
         }
         transform.position = player.position + offset;
-        transform.localScale = scale; 
+        transform.localScale = apparition;
     }
 }
