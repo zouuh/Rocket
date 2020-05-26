@@ -221,7 +221,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 278387598}
-  - component: {fileID: 278387597}
   m_Layer: 0
   m_Name: StarGenerator
   m_TagString: Untagged
@@ -229,22 +228,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &278387597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 278387596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 841d0067422705843a770ddd5d0323f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  star: {fileID: 208727379435952248, guid: cf55bbb7b11f8484c924cec87d5c2321, type: 3}
-  player: {fileID: 1806537290}
-  respawnTime: 0.2
-  stars: {fileID: 114316830}
 --- !u!4 &278387598
 Transform:
   m_ObjectHideFlags: 0
@@ -272,6 +255,7 @@ GameObject:
   - component: {fileID: 534669903}
   - component: {fileID: 534669906}
   - component: {fileID: 534669907}
+  - component: {fileID: 534669908}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -371,6 +355,22 @@ MonoBehaviour:
   asteroidPrefab: {fileID: 1830028325932990398, guid: 5f4feb1a480ea404b91d139f9d3a047c,
     type: 3}
   respawnTime: 1
+--- !u!114 &534669908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d09e1340e5731ce4c9043c84a1dcff85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starPrefab: {fileID: 208727379435952248, guid: cf55bbb7b11f8484c924cec87d5c2321,
+    type: 3}
+  respawnTime: 1
+  stars: {fileID: 114316830}
 --- !u!1 &995178795
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +421,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0dd4139fbe32a8f41b1ee87707dc5169, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -745,12 +745,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b7ba3380e1dba468164dda71a267a9, type: 3}
---- !u!4 &1806537290 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6669630235608834231, guid: c3b7ba3380e1dba468164dda71a267a9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1776016569}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2043027959
 GameObject:
   m_ObjectHideFlags: 0

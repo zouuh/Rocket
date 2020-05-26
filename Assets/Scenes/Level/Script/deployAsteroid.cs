@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class deployAsteroid : MonoBehaviour
+public class DeployAsteroid : MonoBehaviour
 {
     public GameObject asteroidPrefab;
     public float respawnTime = 1.0f;

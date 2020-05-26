@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DeleteAsteroid : MonoBehaviour
 {
-    private float speed = 88.0f;
+    private float speed = 6.0f;
     private Rigidbody rb;
     private Vector3 screenBounds;
 
