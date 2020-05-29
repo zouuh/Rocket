@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeleteAsteroid : MonoBehaviour
+public class DeleteMissileBonus : MonoBehaviour
 {
-    public bool isDead = false;
     private float speed = 6.0f;
     private Rigidbody rb;
     private Vector3 screenBounds;
@@ -20,14 +19,9 @@ public class DeleteAsteroid : MonoBehaviour
     void Update()
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Camera.main.transform.position.y, 0));
-        if (transform.position.y+10 < screenBounds.y || isDead)
+        if (transform.position.y + 10 < screenBounds.y)
         {
             Destroy(this.gameObject);
         }
-    }
-
-    public void die()
-    {
-        Destroy(this.gameObject);
     }
 }
