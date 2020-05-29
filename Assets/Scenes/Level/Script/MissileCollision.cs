@@ -13,8 +13,8 @@ public class MissileCollision : MonoBehaviour
             print("Destruction asteroid");
             print(collider.gameObject.name);
             FindObjectOfType<DeleteAsteroid>().die();
-            //asteroid = GetComponent<DeleteAsteroid>();
-            //asteroid.isDead = true;
+            /*asteroid = GetComponent<DeleteAsteroid>();
+            asteroid.isDead = true;*/
             Destroy(gameObject);
         }
     }

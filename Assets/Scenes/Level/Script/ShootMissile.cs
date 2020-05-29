@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShootMissile : MonoBehaviour
 {
     public GameObject missile;
-    public int nbMissile = 10;
+    public int nbMissile = 5;
     private float speed = 22.0f;
     private Rigidbody rb;
     private Vector3 screenBounds;
@@ -22,7 +22,7 @@ public class ShootMissile : MonoBehaviour
             else
             {
                 print("Shooting !");
-                nbMissile--;
+                nbMissile-=1;
                 GameObject instMissile = Instantiate(missile) as GameObject;
                 instMissile.transform.position = new Vector3(transform.position.x - 0.68f, transform.position.y - 4.5f, 0);
                 instMissile.transform.localScale = new Vector3(0.0003f, 0.0003f, 0.0003f);
@@ -30,6 +30,12 @@ public class ShootMissile : MonoBehaviour
                 rb.velocity = new Vector3(0, speed, 0);
             }
         }
-       
+    }
+
+    public void addFive()
+    {
+        nbMissile += 5;
+        print("5 munissions supplémentaires");
+        print(nbMissile);
     }
 }
