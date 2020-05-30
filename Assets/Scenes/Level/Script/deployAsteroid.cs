@@ -32,13 +32,13 @@ public class DeployAsteroid : MonoBehaviour
                 var++;
             }
         }
-        return var/10;
+        return var/100;
     }
 
     private void spawnEnemy()
     {
         GameObject a = Instantiate(asteroidPrefab) as GameObject;
-        a.transform.position = new Vector3(loiBinomiale(100, 0.5f) + screenBounds.x - 5, screenBounds.y+10, 0);
+        a.transform.position = new Vector3(loiBinomiale(1000, 0.5f) + screenBounds.x - 5, screenBounds.y+10, 0);
         a.transform.localScale = scale;
     }
 
