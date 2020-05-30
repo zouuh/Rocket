@@ -11,10 +11,10 @@ public class MissileCollision : MonoBehaviour
         if (collider.gameObject.tag == "Obstacle")
         {
             print("Destruction asteroid");
-            print(collider.gameObject.name);
-            FindObjectOfType<DeleteAsteroid>().die();
-            /*asteroid = GetComponent<DeleteAsteroid>();
-            asteroid.isDead = true;*/
+          
+            asteroid = collider.gameObject.GetComponent<DeleteAsteroid>();
+            asteroid.die();
+
             Destroy(gameObject);
         }
     }
