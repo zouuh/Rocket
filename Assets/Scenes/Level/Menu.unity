@@ -180,7 +180,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\t\t\t\t\t\tPress \tQ\t    F\t\t    J\t    M \tto activate reactor"
+  m_Text: "\t\t\t\t\t\tPress \tQ\t    F\t\t    J\t    M \tto activate reactors"
 --- !u!222 &542483490
 CanvasRenderer:
   m_ObjectHideFlags: 0
