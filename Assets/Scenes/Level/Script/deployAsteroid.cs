@@ -31,7 +31,6 @@ public class DeployAsteroid : MonoBehaviour
     private float loiUniforme(float[] scales){
         int i;
         i = (int)Random.Range(0, scales.Length);
-        Debug.Log(scales[i]);
         return scales[i];
     }
 
@@ -51,7 +50,6 @@ public class DeployAsteroid : MonoBehaviour
     {
         GameObject a = Instantiate(asteroidPrefab) as GameObject;
         float norm = loiNormale(0f, 1f);
-        Debug.Log(norm);
         a.transform.position = new Vector3(norm + screenBounds.x, screenBounds.y+5, 0);
 
         scale = new Vector3(loiUniforme(scales), loiUniforme(scales), loiUniforme(scales));

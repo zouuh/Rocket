@@ -44,7 +44,7 @@ public class DeployBonus : MonoBehaviour
     private void spawnMissile()
     {
         GameObject m = Instantiate(missilePrefab) as GameObject;
-        m.transform.position = new Vector3(loiTriangulaire(-5, 5, 0), screenBounds.y + 10, 0);
+        m.transform.position = new Vector3(loiTriangulaire(-5, 5, 0) + screenBounds.x, screenBounds.y + 10, 0);
     }
 
     private void spawnBouclier()
@@ -72,7 +72,7 @@ public class DeployBonus : MonoBehaviour
             yield return new WaitForSeconds(respawnBouclierTime);
             if (FindObjectOfType<GameManager>().getGameHasBegin())
             {
-                spawnBouclier();
+                //spawnBouclier();
             }
         }
     }
