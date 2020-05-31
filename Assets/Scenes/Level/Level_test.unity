@@ -426,6 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f86fb4cb2409094f9d4e7fcf984619c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {fileID: 257771700}
 --- !u!136 &257771699
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -887,7 +888,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missilePrefab: {fileID: 327886379288340672, guid: 2cf2ef97626f1f342a3db1a077de3da7,
     type: 3}
-  respawnTime: 8.32
+  bouclierPrefab: {fileID: 5914452251911028973, guid: e13e40842f7c04a4f891883e82fe644f,
+    type: 3}
+  respawnMissileTime: 8.32
+  respawnBouclierTime: 5
 --- !u!1 &697579261
 GameObject:
   m_ObjectHideFlags: 0
@@ -1544,6 +1548,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114529872010336992, guid: c3b7ba3380e1dba468164dda71a267a9,
+        type: 3}
+      propertyPath: bouclier
+      value: 
+      objectReference: {fileID: 5914452251911028973, guid: 1db383e70aebe7d45b4fc5f7948a7e4b,
+        type: 3}
     - target: {fileID: 114621669370137986, guid: c3b7ba3380e1dba468164dda71a267a9,
         type: 3}
       propertyPath: speed

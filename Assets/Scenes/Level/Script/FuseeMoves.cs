@@ -6,7 +6,7 @@ public class FuseeMoves : MonoBehaviour
 {
     public Transform rocket;
 	public Rigidbody rb;
-    private float speed = 10.0f;
+    public float speed = 10.0f;
     private float step = 10;
 	private float sidewaysForce = 5f;
 

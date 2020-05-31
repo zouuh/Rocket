@@ -3,9 +3,6 @@ using UnityEngine.UI;
 
 public class RocketCollision : MonoBehaviour
 {
-
-
-
     public FuseeMoves movement;
 
     void OnCollisionEnter(Collision collisionInfo) {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeleteMissileBonus : MonoBehaviour
+public class DeleteBonus : MonoBehaviour
 {
     private float speed = 6.0f;
     private Rigidbody rb;

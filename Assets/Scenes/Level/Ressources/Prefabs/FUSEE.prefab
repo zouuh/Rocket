@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6669630235608834224}
   - component: {fileID: 6669630235608834225}
   - component: {fileID: 114621669370137986}
+  - component: {fileID: 114529872010336992}
   m_Layer: 0
   m_Name: FUSEE
   m_TagString: Player
@@ -82,7 +83,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missile: {fileID: 327886379288340672, guid: 2c87d46c4e667264cab43fc5424111a6, type: 3}
-  speed: 10
+  nbMissile: 5
+--- !u!114 &114529872010336992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6669630235608834229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1aa4790d4ec034f9b27f9d112c299d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6669630235660065343
 MonoBehaviour:
   m_ObjectHideFlags: 0
