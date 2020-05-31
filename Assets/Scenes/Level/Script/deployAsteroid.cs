@@ -10,8 +10,6 @@ public class DeployAsteroid : MonoBehaviour
     private Vector3 screenBounds;
     private Vector3 scale;
 
-    private float var;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -24,21 +22,24 @@ public class DeployAsteroid : MonoBehaviour
         scale = new Vector3(Random.Range(0.4f, 0.8f), Random.Range(0.4f, 0.8f), Random.Range(0.4f, 0.8f));
     }
 
-    private float loiBinomiale(int n, float p) {
-        var = 0;
-        for(int i=0; i<n; i++) {
-            float rand = (float)Random.Range(0, 1f);
-            if(rand > p) {
-                var++;
-            }
+    private float loiNormale(float mu, float sigma) {
+        float x = 0;
+        float y = 1;
+        float var = 0;
+        while(y>var) {
+            x = (float)Random.Range(-4, 4f);
+            y = (float)Random.Range(0, 0.8f / ( Mathf.Sqrt(2*Mathf.PI*sigma) ));
+            var = ( 1 / ( Mathf.Sqrt(2*Mathf.PI*sigma) ) ) * ( Mathf.Exp( -1f/2f*Mathf.Pow( 2,(x-mu) )/sigma ) );
         }
-        return var/100;
+        return x;
     }
 
     private void spawnEnemy()
     {
         GameObject a = Instantiate(asteroidPrefab) as GameObject;
-        a.transform.position = new Vector3(loiBinomiale(1000, 0.5f) + screenBounds.x - 5, screenBounds.y+10, 0);
+        float norm = loiNormale(0f, 1f);
+        Debug.Log(norm);
+        a.transform.position = new Vector3(norm + screenBounds.x, screenBounds.y+5, 0);
         a.transform.localScale = scale;
     }
 
@@ -50,7 +51,7 @@ public class DeployAsteroid : MonoBehaviour
             respawnTime = (float)Random.Range(0, 0.5f) + 0.6f;
 
             yield return new WaitForSeconds(respawnTime);
-            if(FindObjectOfType<GameManager>().getGameHasBegin()) {
+            if(FindObjectOfType<GameManager>().getGameHasBegin() && screenBounds.y > 15) {
                 spawnEnemy();
             }
         }
