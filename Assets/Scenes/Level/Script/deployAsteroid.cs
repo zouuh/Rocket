@@ -27,7 +27,7 @@ public class DeployAsteroid : MonoBehaviour
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0));
     }
 
-        public float loiUniforme(float[] scales){
+    public float loiUniforme(float[] scales){
         int i;
         i = (int)Random.Range(0, scales.Length);
         return scales[i];

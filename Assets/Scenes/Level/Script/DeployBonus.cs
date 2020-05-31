@@ -6,16 +6,13 @@ public class DeployBonus : MonoBehaviour
 {
     public GameObject missilePrefab;
     public GameObject bouclierPrefab;
-    public float respawnMissileTime = 8.32f;
-    public float respawnBouclierTime = 3.0f;
+    public float respawnTime = 8.32f;
     private Vector3 screenBounds;
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(bonusWave());
-        // StartCoroutine(missileWave());
-        // StartCoroutine(bouclierWave());
     }
 
     void Update()
@@ -25,7 +22,6 @@ public class DeployBonus : MonoBehaviour
 
     private bool bernoulli(float p) {
         float var = (float)Random.Range(0f, 1f);
-        Debug.Log("Bernouilli " + (var<p) + " car var = " + var);
         return (var < p);
     }
 
@@ -71,9 +67,8 @@ public class DeployBonus : MonoBehaviour
 
     IEnumerator bonusWave() {
         while (true) {
-            yield return new WaitForSeconds(respawnMissileTime);
+            yield return new WaitForSeconds(respawnTime);
             if (FindObjectOfType<GameManager>().getGameHasBegin() && !FindObjectOfType<GameManager>().getGameHasEnded() && screenBounds.y > 20) {
-                Debug.Log("BONUS");
                 if(bernoulli(0.5f)) {
                     spawnMissile();
                 }
@@ -88,30 +83,4 @@ public class DeployBonus : MonoBehaviour
             }
         }
     }
-
-
-
-    // IEnumerator missileWave()
-    // {
-    //     while (true)
-    //     {
-    //         yield return new WaitForSeconds(respawnMissileTime);
-    //         if (FindObjectOfType<GameManager>().getGameHasBegin() && !FindObjectOfType<GameManager>().getGameHasEnded() && screenBounds.y > 20)
-    //         {
-    //             spawnMissile();
-    //         }
-    //     }
-    // }
-
-    // IEnumerator bouclierWave()
-    // {
-    //     while (true)
-    //     {
-    //         yield return new WaitForSeconds(respawnBouclierTime);
-    //         if (FindObjectOfType<GameManager>().getGameHasBegin() && !FindObjectOfType<GameManager>().getGameHasEnded() && screenBounds.y > 20)
-    //         {
-    //             spawnBouclier();
-    //         }
-    //     }
-    // }
 }
