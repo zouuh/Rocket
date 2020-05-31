@@ -10,16 +10,29 @@ public class DeployAsteroid : MonoBehaviour
     private Vector3 screenBounds;
     private Vector3 scale;
 
+    private float[] scales = new float[5];
+
     // Start is called before the first frame update
     void Start()
     {
+        scales[0] = 0.4f;
+        scales[1] = 0.5f;
+        scales[2] = 0.6f;
+        scales[3] = 0.7f;
+        scales[4] = 0.8f;
         StartCoroutine(asteroidWave());
     }
 
     void Update()
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0));
-        scale = new Vector3(Random.Range(0.4f, 0.8f), Random.Range(0.4f, 0.8f), Random.Range(0.4f, 0.8f));
+    }
+
+    private float loiUniforme(float[] scales){
+        int i;
+        i = (int)Random.Range(0, scales.Length);
+        Debug.Log(scales[i]);
+        return scales[i];
     }
 
     private float loiNormale(float mu, float sigma) {
@@ -40,6 +53,8 @@ public class DeployAsteroid : MonoBehaviour
         float norm = loiNormale(0f, 1f);
         Debug.Log(norm);
         a.transform.position = new Vector3(norm + screenBounds.x, screenBounds.y+5, 0);
+
+        scale = new Vector3(loiUniforme(scales), loiUniforme(scales), loiUniforme(scales));
         a.transform.localScale = scale;
     }
 
