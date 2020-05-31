@@ -13,14 +13,31 @@ public class DeployBonus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(missileWave());
-        StartCoroutine(bouclierWave());
+        StartCoroutine(bonusWave());
+        // StartCoroutine(missileWave());
+        // StartCoroutine(bouclierWave());
     }
 
     void Update()
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0));
     }
+
+    private bool bernoulli(float p) {
+        float var = (float)Random.Range(0f, 1f);
+        Debug.Log("Bernouilli " + (var<p) + " car var = " + var);
+        return (var < p);
+    }
+
+    // private int binomiale(int n, float p) {
+    //     int var = 0;
+    //     for(int i=0; i<n; i++) {
+    //         if(bernoulli(p)) {
+    //             var++;
+    //         }
+    //     }
+    //     return var;
+    // }
 
     private float loiTriangulaire(float a, float b, float c) {
         float x = 0;
@@ -39,8 +56,6 @@ public class DeployBonus : MonoBehaviour
         return x;
     }
 
-
-
     private void spawnMissile()
     {
         GameObject m = Instantiate(missilePrefab) as GameObject;
@@ -53,27 +68,50 @@ public class DeployBonus : MonoBehaviour
         m.transform.position = new Vector3(Random.Range(screenBounds.x - 5, screenBounds.x + 5), screenBounds.y + 15, 0);
     }
 
-    IEnumerator missileWave()
-    {
-        while (true)
-        {
+
+    IEnumerator bonusWave() {
+        while (true) {
             yield return new WaitForSeconds(respawnMissileTime);
-            if (FindObjectOfType<GameManager>().getGameHasBegin() && !FindObjectOfType<GameManager>().getGameHasEnded() && screenBounds.y > 15)
-            {
-                spawnMissile();
+            if (FindObjectOfType<GameManager>().getGameHasBegin() && !FindObjectOfType<GameManager>().getGameHasEnded() && screenBounds.y > 20) {
+                Debug.Log("BONUS");
+                if(bernoulli(0.5f)) {
+                    spawnMissile();
+                }
+                else {
+                    if(!FindObjectOfType<HasBouclier>().hasBouclierBonus) {
+                        spawnBouclier();
+                    }
+                    else{
+                        Debug.Log("PAS DE BOUCLIER");
+                    }
+                }
             }
         }
     }
 
-    IEnumerator bouclierWave()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(respawnBouclierTime);
-            if (FindObjectOfType<GameManager>().getGameHasBegin())
-            {
-                spawnBouclier();
-            }
-        }
-    }
+
+
+    // IEnumerator missileWave()
+    // {
+    //     while (true)
+    //     {
+    //         yield return new WaitForSeconds(respawnMissileTime);
+    //         if (FindObjectOfType<GameManager>().getGameHasBegin() && !FindObjectOfType<GameManager>().getGameHasEnded() && screenBounds.y > 20)
+    //         {
+    //             spawnMissile();
+    //         }
+    //     }
+    // }
+
+    // IEnumerator bouclierWave()
+    // {
+    //     while (true)
+    //     {
+    //         yield return new WaitForSeconds(respawnBouclierTime);
+    //         if (FindObjectOfType<GameManager>().getGameHasBegin() && !FindObjectOfType<GameManager>().getGameHasEnded() && screenBounds.y > 20)
+    //         {
+    //             spawnBouclier();
+    //         }
+    //     }
+    // }
 }

@@ -5,14 +5,14 @@ using Random = UnityEngine.Random;
 
 public class TakeMissileBonus : MonoBehaviour
 {
-    private bool bernouilli(float p) {
+    private bool bernoulli(float p) {
         float var = (float)Random.Range(0f, 1f);
         Debug.Log("Bernouilli " + (var<p) + " car var = " + var);
         return (var < p);
     }
     private int loiGeometrique(float p) {
         int nbBoucles = 1;
-        while(nbBoucles < 10 && !bernouilli(p)) {
+        while(nbBoucles < 10 && !bernoulli(p)) {
 
             nbBoucles++;
         }

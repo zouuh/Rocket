@@ -23,18 +23,17 @@ public class DeployAsteroid : MonoBehaviour
         StartCoroutine(asteroidWave());
     }
 
-    void Update()
-    {
+    void Update() {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0));
     }
 
-    private float loiUniforme(float[] scales){
+        public float loiUniforme(float[] scales){
         int i;
         i = (int)Random.Range(0, scales.Length);
         return scales[i];
     }
 
-    private float loiNormale(float mu, float sigma) {
+    public float loiNormale(float mu, float sigma) {
         float x = 0;
         float y = 1;
         float var = 0;
@@ -46,8 +45,7 @@ public class DeployAsteroid : MonoBehaviour
         return x;
     }
 
-    private void spawnEnemy()
-    {
+    private void spawnEnemy() {
         GameObject a = Instantiate(asteroidPrefab) as GameObject;
         float norm = loiNormale(0f, 1f);
         a.transform.position = new Vector3(norm + screenBounds.x, screenBounds.y+5, 0);
@@ -56,15 +54,14 @@ public class DeployAsteroid : MonoBehaviour
         a.transform.localScale = scale;
     }
 
-    IEnumerator asteroidWave()
-    {
+    IEnumerator asteroidWave() {
         while (true)
         {
             // PREMIERE VARIABLE ALEATOIRE : temps de respawn -> loi uniforme sur l'intervalle [0, 0.5]
             respawnTime = (float)Random.Range(0, 0.5f) + 0.6f;
 
             yield return new WaitForSeconds(respawnTime);
-            if(FindObjectOfType<GameManager>().getGameHasBegin() && screenBounds.y > 15) {
+            if(FindObjectOfType<GameManager>().getGameHasBegin() && screenBounds.y > 20) {
                 spawnEnemy();
             }
         }
