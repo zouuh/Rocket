@@ -42,4 +42,9 @@ public class HasBouclier : MonoBehaviour
     {
         takeBouclierBonus = true;
     }
+
+    public void breakShield()
+    {
+        hasBouclierBonus = false;
+    }
 }

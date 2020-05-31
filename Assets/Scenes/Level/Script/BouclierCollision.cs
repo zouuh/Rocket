@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MissileCollision : MonoBehaviour
+public class BouclierCollision : MonoBehaviour
 {
     public DeleteAsteroid asteroid;
 
@@ -10,10 +10,12 @@ public class MissileCollision : MonoBehaviour
     {
         if (collider.gameObject.tag == "Obstacle")
         {
-            print("Destruction asteroid by missile");
-          
+            print("Destruction asteroid by shield");
+
             asteroid = collider.gameObject.GetComponent<DeleteAsteroid>();
             asteroid.die();
+
+            FindObjectOfType<HasBouclier>().breakShield();
 
             Destroy(gameObject);
         }
