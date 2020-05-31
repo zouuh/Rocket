@@ -72,7 +72,7 @@ public class DeployBonus : MonoBehaviour
             yield return new WaitForSeconds(respawnBouclierTime);
             if (FindObjectOfType<GameManager>().getGameHasBegin())
             {
-                //spawnBouclier();
+                spawnBouclier();
             }
         }
     }
