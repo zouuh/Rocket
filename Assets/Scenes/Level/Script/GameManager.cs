@@ -44,8 +44,6 @@ public class GameManager : MonoBehaviour
         return gameHasEnded;
     }
 
-    
-
     void Restart() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
