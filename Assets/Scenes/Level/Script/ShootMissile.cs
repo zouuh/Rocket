@@ -32,10 +32,10 @@ public class ShootMissile : MonoBehaviour
         }
     }
 
-    public void addFive()
+    public void addMissiles(int nb)
     {
-        nbMissile += 5;
-        print("5 munissions supplémentaires");
+        nbMissile += nb;
+        print(nb + " munissions supplémentaires");
         print(nbMissile);
     }
 }

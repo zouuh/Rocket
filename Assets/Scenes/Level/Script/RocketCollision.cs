@@ -11,5 +11,4 @@ public class RocketCollision : MonoBehaviour
             FindObjectOfType<GameManager>().EndGame();
         }
     }
-
 }
