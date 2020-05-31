@@ -35,6 +35,11 @@ public class DeployBonus : MonoBehaviour
     //     return var;
     // }
 
+    public int loiUniforme(){
+        int var = (int)Random.Range(0, 3);
+        return (var - 1) * 2;
+    }
+
     private float loiTriangulaire(float a, float b, float c) {
         float x = 0;
         float y = 1;
@@ -55,13 +60,13 @@ public class DeployBonus : MonoBehaviour
     private void spawnMissile()
     {
         GameObject m = Instantiate(missilePrefab) as GameObject;
-        m.transform.position = new Vector3(loiTriangulaire(-5, 5, 0) + screenBounds.x, screenBounds.y + 10, 0);
+        m.transform.position = new Vector3(loiTriangulaire(-5, 5, loiUniforme()) + screenBounds.x, screenBounds.y + 10, 0);
     }
 
     private void spawnBouclier()
     {
         GameObject m = Instantiate(bouclierPrefab) as GameObject;
-        m.transform.position = new Vector3(Random.Range(screenBounds.x - 5, screenBounds.x + 5), screenBounds.y + 15, 0);
+        m.transform.position = new Vector3(Random.Range(loiTriangulaire(-5, 5, loiUniforme()) + screenBounds.x, screenBounds.x + 5), screenBounds.y + 10, 0);
     }
 
 
