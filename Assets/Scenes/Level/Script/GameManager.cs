@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     bool gameHasEnded = false;
     public GameObject gameOverUI;
     public GameObject gameStartUI;
+    public GameObject gamePauseUI;
     public FuseeMoves movement;
 
 
@@ -15,14 +16,20 @@ public class GameManager : MonoBehaviour
         if (Input.GetKey("space")) {
             gameHasBegin = true;
         }
-        if (gameHasBegin == true) {
+        if (gameHasBegin) {
             gameStartUI.SetActive(false);
             movement.enabled = true;
         }
-        if (gameHasEnded == true) {
+        if (gameHasEnded) {
             if (Input.GetKey("r")) {
                 Restart();
             }
+        }
+        if (FindObjectOfType<PauseGame>().isPaused) {
+            gamePauseUI.SetActive(true);
+        }
+        else {
+            gamePauseUI.SetActive(false);
         }
     }
     public void EndGame() {

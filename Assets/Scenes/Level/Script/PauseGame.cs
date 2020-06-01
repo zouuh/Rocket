@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class PauseGame : MonoBehaviour
 {
-    private bool isPaused = false;
+    public bool isPaused = false;
     private int count = 0;
 
     void Update()
