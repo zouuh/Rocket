@@ -168,6 +168,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Aura
       objectReference: {fileID: 0}
+    - target: {fileID: 8692347912883819635, guid: d09b6d668ff93f440a803a307497352c,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.47058824
+      objectReference: {fileID: 0}
     - target: {fileID: 8800698892330843403, guid: d09b6d668ff93f440a803a307497352c,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
                 Restart();
             }
         }
-        if (FindObjectOfType<PauseGame>().isPaused) {
+        if (FindObjectOfType<PauseGame>().isPaused && !gameHasEnded) {
             gamePauseUI.SetActive(true);
         }
         else {
