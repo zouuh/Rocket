@@ -13,8 +13,8 @@ public class CameraMoves : MonoBehaviour
     	    transform.position = player.position + offset; 
         }
         else if(transform.position.y < 40) {
-            offset.y += (float)0.0175;
-            offset.z -= (float)0.045;
+            offset.y += (float)0.009;
+            offset.z -= (float)0.022;
             transform.position = player.position + offset;
         } 
         else {
