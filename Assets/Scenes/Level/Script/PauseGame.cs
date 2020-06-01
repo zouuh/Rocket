@@ -6,12 +6,17 @@ using System.Collections.Generic;
 public class PauseGame : MonoBehaviour
 {
     private bool isPaused = false;
+    private int count = 0;
 
     void Update()
     {
         if (FindObjectOfType<GameManager>().getGameHasBegin())
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (count < 10)
+            {
+                count++;
+            }
+            if (Input.GetKeyDown(KeyCode.Space) && count==10)
             {
                 isPaused = !isPaused;
             }

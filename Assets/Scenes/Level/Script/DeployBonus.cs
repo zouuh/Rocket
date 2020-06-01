@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeployBonus : MonoBehaviour
 {
@@ -65,8 +66,8 @@ public class DeployBonus : MonoBehaviour
 
     private void spawnBouclier()
     {
-        GameObject m = Instantiate(bouclierPrefab) as GameObject;
-        m.transform.position = new Vector3(Random.Range(loiTriangulaire(-5, 5, loiUniforme()) + screenBounds.x, screenBounds.x + 5), screenBounds.y + 10, 0);
+        GameObject b = Instantiate(bouclierPrefab) as GameObject;
+        b.transform.position = new Vector3(Random.Range(loiTriangulaire(-5, 5, loiUniforme()) + screenBounds.x, screenBounds.x + 5), screenBounds.y + 10, 0);
     }
 
 
