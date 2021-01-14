@@ -18,8 +18,8 @@ public class CameraMoves : MonoBehaviour
             transform.position = player.position + offset;
         } 
         else {
-            offset.y = 2;
-            offset.z = -5;
+            offset.y = 2.5f;
+            offset.z = -6;
             transform.position = player.position + offset; 
         }  
     }
